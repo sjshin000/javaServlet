@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Form</title>
+
+<style type="text/css">
+#text ol li {
+	border: 1px solid gray;
+	width: 600px;
+	margin: 5px;
+	padding: 3px;
+}
+
+#select ol li {
+	border: 1px solid gray;
+	width: 600px;
+	margin: 5px;
+	padding: 3px;
+}
+
+#file ol li {
+	border: 1px solid gray;
+	width: 600px;
+	margin: 5px;
+	padding: 3px;
+}
+</style>
+</head>
+
+
+<body>
+	<div id="text">
+		<h3>텍스트 필드</h3>
+		<ol>
+			<li>input type="text"
+				<form action="form.jsp" method="GET">
+					닉네임 : <input type="text" name="nickname" value="기본값" /> <input
+						type="submit" />
+			</li>
+			<li>input type="text" disabled : <br />값으로 disabled을 지정하면 텍스트
+				필드가 불능 상태가 된다. 서버로 전송해도 이 속성이 설정된 컨트롤의 데이터는 서버로 전송되지 않는다.<br />
+				<form action="form.jsp" method="GET">
+					닉네임 : <input type="text" name="nickname" value="기본값"
+						disabled="disabled" /> <input type="submit" /></li>
+			<li>input type="text" readonly : <br /> 값으로 readonly를 지정하면 텍스트
+				필드에 값이 입력되지 않는다. 서버로는 데이터가 전송된다.<br />
+				<form action="form.jsp" method="GET">
+					닉네임 : <input type="text" name="nickname" value="기본값"
+						disabled="disabled" readonly="readonly" /> <input type="submit" /></li>
+			<li>input type="password"
+				<form action="form.jsp" method="post">
+					비밀번호 : <input type="password" name="password" /> <input
+						type="submit" />
+				</form>
+			<li>hidden data
+				<form action="form.jsp" method="GET">
+					이름 : <input type="text" name="name" /> <input type="hidden"
+						name="language" /> <br /> <input type="submit" />
+				</form>
+			</li>
+			<li>textarea
+				<form action="#" method="GET">
+					내용 <br />
+					<textarea rows="5" cols="40"></textarea>
+					<br /> <input type="submit" />
+				</form>
+			</li>
+		</ol>
+	</div>
+
+	<div id="select">
+		<h3>선택</h3>
+		<ol>
+			<li>라디오 버튼
+				<form action="example_receive_single.php" method="POST">
+					관심사 : <br /> <input type="radio" name="interest"
+						value="programming" checked="checked" /> 프로그래밍<br /> <input
+						type="radio" name="interest" value="design" /> 디자인<br /> <input
+						type="radio" name="interest" value="planning" /> 기획<br /> <input
+						type="submit" />
+				</form>
+			</li>
+
+			<li>콤보박스
+				<form action="example_receive_single.php" method="POST">
+					관심사 : <br /> <select name="interest">
+						<option value="programming">프로그래밍</option>
+						<option value="design" selected="selected">디자인</option>
+						<option value="planning">기획</option>
+					</select> <input type="submit" />
+				</form>
+			</li>
+
+			<li>콤보박스 multiple (컨트롤 키 누른상태에서 다중 선택가능)
+				<form action="example_receive_single.php" method="POST">
+					관심사 : <br /> <select name="interest" multiple>
+						<option value="programming">프로그래밍</option>
+						<option value="design" selected="selected">디자인</option>
+						<option value="planning">기획</option>
+					</select> <input type="submit" />
+			</li>
+
+			<li>체크 박스
+				<form action="example_receive_multi.php" method="POST">
+					<br /> 관심사 : <br /> <input type="checkbox" name="interest[]"
+						value="programming" /> 프로그래밍<br /> <input type="checkbox"
+						name="interest[]" value="design" /> 디자인<br /> <input
+						type="checkbox" name="interest[]" value="planning"
+						checked="checked" /> 기획<br /> <input type="submit" />
+				</form>
+			</li>
+	</div>
+	<div id="file">
+		<h3>파일전송</h3>
+		<ol>
+			<li>파일 업로드
+				<form action="example_receive.php" method="POST"
+					enctype="multipart/form-data">
+					<input type="file" name="image" /> <input type="submit" />
+				</form>
+			</li>
+		</ol>
+
+	</div>
+
+</body>
+</html>
